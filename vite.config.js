@@ -1,14 +1,13 @@
-
 import{defineConfig} from 'vite'
-export default defineConfig(({ command, mode, ssrBuild }) => {
-    if (command === 'serve') {
-      return {
-        // dev specific config
-      }
-    } else {
-      // command === 'build'
-      return {
-        // build specific config
+
+export default defineConfig({
+  build: {
+    rolluppOptions: {
+      output: {
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`
       }
     }
-  })
+  }
+    })

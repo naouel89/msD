@@ -83,4 +83,4 @@
   </div>
   </div>
   </div>
-  <script type= "module" src = "main.js"></script>
+  <script type= "module" src = "index.js"></script>
