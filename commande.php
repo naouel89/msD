@@ -7,8 +7,7 @@
  
   <!-- Lien vers votre fichier CSS personnalisé -->
 
-    <link rel="stylesheet" href="dist/assets/index-cf548c1d.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dist/assets/index.css">
 </head>
 
 
@@ -136,7 +135,7 @@
 </script>
 
 
- <script type= "module" src = "main.js"></script>
+ <script type= "module" src = "dist/assets/index.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
