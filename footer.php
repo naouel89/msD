@@ -33,4 +33,3 @@
       </div>
     </div>
   </div>
-  <script type= "module" src = "main.js"></script>
