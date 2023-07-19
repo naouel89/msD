@@ -41,62 +41,49 @@ function validateForm(event) {
 
     // panier
 
-    function addToCart(event) {
-      event.preventDefault();
-      var burger = event.target.parentNode;
-      var burgerName = burger.querySelector("h3").textContent;
-      var burgerPrice = parseFloat(burger.querySelector("p:nth-of-type(1)").textContent.replace("Prix: ", ""));
-      
-      // Créer un nouvel élément pour le panier
-      var cartItem = document.createElement("div");
-      cartItem.classList.add("cart-item");
-      
-      // Contenu de l'élément du panier
-      var itemContent = `
-        <p>${burgerName}</p>
-        <p>${burgerPrice.toFixed(2)} €</p>
-      `;
-      cartItem.innerHTML = itemContent;
-      
-      // Ajouter l'élément au panier
-      var cart = document.getElementById("cart");
-      cart.appendChild(cartItem);
-      
-      // Mettre à jour le détail de la commande et le total
-      updateOrderSummary();
+    function addToCart(burgerName, price) {
+      const quantity = parseInt(document.querySelector(`.burger-name=${burgerName} .quantity input`).value);
+      const total = price * quantity;
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+
+      const itemText = `${quantity}x ${burgerName} - ${total.toFixed(2)} €`;
+      const item = document.createElement('li');
+      item.innerText = itemText;
+      cartItems.appendChild(item);
+
+      let currentTotal = parseFloat(cartTotal.innerText.replace(/[^0-9.]/g, ''));
+      currentTotal += total;
+      cartTotal.innerText = `Total: ${currentTotal.toFixed(2)} €`;
+
+      // Ajouter l'article au résumé de la commande
+      const orderItems = document.getElementById('order-items');
+      const orderTotal = document.getElementById('order-total');
+      const orderItem = document.createElement('li');
+      orderItem.innerText = itemText;
+      orderItems.appendChild(orderItem);
+
+      let currentOrderTotal = parseFloat(orderTotal.innerText.replace(/[^0-9.]/g, ''));
+      currentOrderTotal += total;
+      orderTotal.innerText = `Total: ${currentOrderTotal.toFixed(2)} €`;
     }
-    
-    // Fonction pour mettre à jour le détail de la commande et le total
-    function updateOrderSummary() {
-      var cartItems = document.getElementsByClassName("cart-item");
-      var total = 0;
-      
-      var orderSummary = document.getElementById("order-summary");
-      orderSummary.innerHTML = ""; // Réinitialiser le contenu du détail de la commande
-      
-      // Parcourir les éléments du panier et calculer le total
-      for (var i = 0; i < cartItems.length; i++) {
-        var itemPrice = parseFloat(cartItems[i].querySelector("p:nth-of-type(2)").textContent.replace(" €", ""));
-        total += itemPrice;
-        
-        // Ajouter les éléments au détail de la commande
-        var orderItem = document.createElement("div");
-        orderItem.innerHTML = cartItems[i].innerHTML;
-        orderSummary.appendChild(orderItem);
-      }
-      
-      // Ajouter le total au détail de la commande
-      var totalElement = document.createElement("div");
-      totalElement.innerHTML = `
-        <p><strong>Total:</strong></p>
-        <p>${total.toFixed(2)} €</p>
-      `;
-      orderSummary.appendChild(totalElement);
+
+    function clearCart() {
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      cartItems.innerHTML = '';
+      cartTotal.innerText = 'Total: 0.00 €';
+
+      // Vider également le résumé de la commande
+      const orderItems = document.getElementById('order-items');
+      const orderTotal = document.getElementById('order-total');
+      orderItems.innerHTML = '';
+      orderTotal.innerText = 'Total: 0.00 €';
     }
-    
-    // Lier la fonction addToCart aux boutons "Ajouter" des burgers
-    var addToCartButtons = document.querySelectorAll(".btn-primary");
-    addToCartButtons.forEach(function(button) {
-      button.addEventListener("click", addToCart);
-    });
-    
+
+    function checkout() {
+      const cartItems = document.getElementById('cart-items').innerHTML;
+      const cartTotal = document.getElementById('cart-total').innerText;
+      document.getElementById('cart-items-input').value = cartItems;
+      document.getElementById('total-price-input').value = cartTotal;
+    }

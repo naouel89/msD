@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Commande</title>
- 
-  <!-- Lien vers votre fichier CSS personnalisé -->
-
-  <link rel="stylesheet" href="dist/assets/index.css">
-</head>
 
 
-<body>
-
-<?php include 'header.php';
+<?php 
+$titre = "categorie";
+include 'header.php';
+include 'navbar.php';
 ?>
 
 
-<body>
-  <div class="container">
+<div class="container">
     <h2>Menu</h2>
     <div class="burger">
       <h3 class="burger-name">CheeseBurger</h3>
@@ -26,7 +15,7 @@
       <div class="quantity">
         Quantité: <input type="number" value="1" min="1">
       </div>
-      <button class="add-to-cart">Ajouter</button>
+      <button class="add-to-cart" onclick="addToCart('CheeseBurger', 5.99)">Ajouter</button>
     </div>
 
     <div class="burger">
@@ -35,113 +24,86 @@
       <div class="quantity">
         Quantité: <input type="number" value="1" min="1">
       </div>
-      <button class="add-to-cart">Ajouter</button>
+      <button class="add-to-cart" onclick="addToCart('DoubleBurgers', 7.99)">Ajouter</button>
     </div>
 
-    <div class="burger">
-      <h3 class="burger-name">Burgers 3</h3>
-      <p class="burger-price">Prix: $6.49</p>
-      <div class="quantity">
-        Quantité: <input type="number" value="1" min="1">
-      </div>
-      <button class="add-to-cart">Ajouter</button>
-    </div>
-
-    <div class="burger">
-      <h3 class="burger-name">Double Steak Burgers</h3>
-      <p class="burger-price">Prix: $8.99</p>
-      <div class="quantity">
-        Quantité: <input type="number" value="1" min="1">
-      </div>
-      <button class="add-to-cart">Ajouter</button>
-    </div>
+    <!-- ... Ajouter les autres burgers ici ... -->
 
     <h2>Panier</h2>
     <ul id="cart-items"></ul>
     <p id="cart-total"></p>
 
-    <button id="checkout-btn">Payer</button>
+    <h2>Résumé de la commande :</h2>
+    <ul id="order-items"></ul>
+    <p id="order-total"></p>
+
+    <form action="payment.php" method="post">
+      <input type="hidden" name="cart_items" id="cart-items-input" value="">
+      <input type="hidden" name="total_price" id="total-price-input" value="">
+
+      <!-- Bouton pour valider la commande -->
+      <button id="checkout-btn" type="submit">Payer</button>
+    </form>
   </div>
-  </div>  <div class="parallax-container">
 
+  <div class="parallax-container">
     <div class="nav">
-        <div class="video-container">
-            <video autoplay muted loop style="width: 50%; height: 100%;">
-                <source src="video/pexels-rdne-stock-project-5780437-3840x2160-24fps.mp4" type="video/mp4">
-            </video>
-        </div>
+      <div class="video-container">
+        <video autoplay muted loop style="width: 50%; height: 100%;">
+          <source src="video/pexels-rdne-stock-project-5780437-3840x2160-24fps.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
-</div>
+  </div>
+  <script>
+  function addToCart(burgerName, price) {
+    const quantity = parseInt(document.querySelector(`.burger-name=${burgerName} .quantity input`).value);
+    const total = price * quantity;
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
 
-<?php include 'footer.php';
-?>
+    const itemText = `${quantity}x ${burgerName} - ${total.toFixed(2)} €`;
+    const item = document.createElement('li');
+    item.innerText = itemText;
+    cartItems.appendChild(item);
 
-<script>  $(document).ready(function() {
-    // Fonction pour ajouter un article au panier
-    function addToCart(event) {
-      event.preventDefault();
+    let currentTotal = parseFloat(cartTotal.innerText.replace(/[^0-9.]/g, ''));
+    currentTotal += total;
+    cartTotal.innerText = `Total: ${currentTotal.toFixed(2)} €`;
 
-      // Récupérer les informations de l'article à partir des éléments HTML
-      const burger = $(this).closest('.burger');
-      const burgerName = burger.find('.burger-name').text();
-      const burgerPrice = parseFloat(burger.find('.burger-price').text().replace("Prix: $", ""));
-      const quantity = parseInt(burger.find('.quantity input').val());
+    // Ajouter l'article au résumé de la commande
+    const orderItems = document.getElementById('order-items');
+    const orderTotal = document.getElementById('order-total');
+    const orderItem = document.createElement('li');
+    orderItem.innerText = itemText;
+    orderItems.appendChild(orderItem);
 
-      // Vérifier si la quantité est valide
-      if (quantity <= 0) {
-        alert("Veuillez entrer une quantité valide.");
-        return;
-      }
+    let currentOrderTotal = parseFloat(orderTotal.innerText.replace(/[^0-9.]/g, ''));
+    currentOrderTotal += total;
+    orderTotal.innerText = `Total: ${currentOrderTotal.toFixed(2)} €`;
+  }
 
-      // Créer un nouvel élément li pour afficher l'article dans le panier avec la quantité
-      const li = $('<li>').text(`${burgerName} - ${burgerPrice.toFixed(2)} x ${quantity}`);
+  function clearCart() {
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    cartItems.innerHTML = '';
+    cartTotal.innerText = 'Total: 0.00 €';
 
-      // Ajouter l'élément li au panier (ul avec l'ID "cart-items")
-      $('#cart-items').append(li);
+    // Vider également le résumé de la commande
+    const orderItems = document.getElementById('order-items');
+    const orderTotal = document.getElementById('order-total');
+    orderItems.innerHTML = '';
+    orderTotal.innerText = 'Total: 0.00 €';
+  }
 
-      // Calculer le total du panier
-      updateCartTotal();
+  function checkout() {
+    const cartItems = document.getElementById('cart-items').innerHTML;
+    const cartTotal = document.getElementById('cart-total').innerText;
+    document.getElementById('cart-items-input').value = cartItems;
+    document.getElementById('total-price-input').value = cartTotal;
+  }
 
-      // Réinitialiser la quantité à 1
-      burger.find('.quantity input').val(1);
-    }
-
-    // Fonction pour mettre à jour le total du panier
-    function updateCartTotal() {
-      let total = 0;
-
-      $('#cart-items li').each(function() {
-        const itemText = $(this).text();
-        const price = parseFloat(itemText.split(' - ')[1].split(' x ')[0]);
-        const quantity = parseInt(itemText.split(' x ')[1]);
-
-        total += price * quantity;
-      });
-
-      $('#cart-total').text('Total: $' + total.toFixed(2));
-      $('#navbar-total').text(total.toFixed(2)); // Mettre à jour le total sur la navbar
-    }
-
-    // Écouter les clics sur les boutons "Ajouter" pour ajouter les articles au panier
-    $('.add-to-cart').click(addToCart);
-
-    // Écouter le clic sur le bouton "Payer"
-    $('#checkout-btn').click(function() {
-      const total = parseFloat($('#cart-total').text().split('$')[1]);
-      // Envoyer le total à une page PHP pour le traitement
-      window.location.href = `checkout.php?total=${total}`;
-    });
-  });
 </script>
 
+  <?php include 'footer.php'; ?>
 
- <script type= "module" src = "dist/assets/index.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
-  <script></script>
-
->>>>>>> 73e197d5e8bc226b2076977c798640e71c423506
-</body>
-</html>

@@ -1,17 +1,8 @@
-<!doctype html>
-<html lang="fr">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The District: -Accueil</title>
-
-  <link rel="stylesheet" href="dist/assets/index.css">
-
-
-
-<body>
-<?php include 'header.php';
+<?php 
+$titre = "accueil";
+include 'header.php';
+include 'navbar.php';
 ?>
 
 
@@ -23,7 +14,7 @@
 <p>Découvrez nos délicieux plats faits maison.</p>
 <p>Fusion exquise de saveurs rapides et de satisfaction gourmande où chaque bouchée vous transporte vers un
   monde de délices.</p>
-  <a href="categorie.html" class="btn btn-primary">Catégorie</a>
+  <a href="categorie.php" class="btn btn-primary">Catégorie</a>
 </div>
 </div>
 </div>
@@ -35,7 +26,7 @@
 <div class="col-lg-4">
 <div class="featured-item">
   <i class="fas fa-hamburger"></i>
-  <a href="nos burger.html" class="btn btn-primary" ><h3>Nos Burgers</h3></a>
+  <a href="nosburger.php" class="btn btn-primary" ><h3>Nos Burgers</h3></a>
   <p>Dégustez nos hamburgers savoureux préparés avec des ingrédients frais.</p>
 </div>
 </div>
@@ -102,9 +93,6 @@
 
 <?php include 'footer.php';
 ?>
-
-<script></script>
-<script type= "module" src = "dist/assets/index.js"></script>
 
 </body>
 </html>
