@@ -102,7 +102,6 @@ include 'navbar.php';
     document.getElementById('cart-items-input').value = cartItems;
     document.getElementById('total-price-input').value = cartTotal;
   }
-
 </script>
 
   <?php include 'footer.php'; ?>

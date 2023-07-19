@@ -60,27 +60,9 @@
   </div>
 
   <!--Fin du Contact-->
-  <div class="parallax-container">
 
-      <div class="nav">
-          <div class="video-container">
-              <video autoplay muted loop style="width: 50%; height: 100%;">
-                  <source src="video/pexels-rdne-stock-project-5780437-3840x2160-24fps.mp4" type="video/mp4">
-              </video>
-          </div>
-      </div>
-  </div>
 
   <?php include 'footer.php';
 ?>
 
 
-<script>
-
-
-</script>
-
-<script type="module" src = "dist/assets/index-3cfb730f.js"></script>
-
-</body>
-</html>
