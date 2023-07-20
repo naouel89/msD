@@ -83,13 +83,12 @@
 }
 
 .category:hover {
-  transform: rotateY(50deg);
+  /* transform: scale (1); */
 }
 
 .category a {
   display: block;
   text-decoration: none;
-  transition: transform 1s ease;
 }
 
 .category img {
@@ -99,6 +98,15 @@
   border-radius: 35px;
   transform-origin: center center;
 }
+
+.effet {
+  transition: transform 0.5s ease;
+}
+
+.effet:hover {
+  transform: scale(1.2);
+}
+
 
 .category h3 {
   font-size: 18px;
