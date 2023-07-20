@@ -40,7 +40,7 @@
             <a class="nav-link disabled">The District</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="commande.html"><i class="fa fa-shopping-cart"></i> Panier <span id="cart-price">$0</span></a>
+            <a class="nav-link" href="commande.html"><i class="fa fa-shopping-cart"></i> Panier <span id="cart-price">0</span></a>
           </li>
         </ul>
         <form class="d-flex" role="search">

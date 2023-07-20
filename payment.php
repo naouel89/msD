@@ -1,13 +1,11 @@
-<!doctype html>
-<html lang="fr">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Paiement - The District</title>
-</head>
+<?php 
+$titre = "payement";
+include 'header.php';
+include 'navbar.php';
 
-<body>
+?>
+
   <h1>Récapitulatif de la commande</h1>
 
   <?php
@@ -49,7 +47,8 @@
     header("Location: index.html");
     exit();
   }
+ 
   ?>
-</body>
-
-</html>
+<?php
+include 'footer.php';
+?>
