@@ -82,9 +82,7 @@
   perspective: 800px;
 }
 
-.category:hover {
-  /* transform: scale (1); */
-}
+
 
 .category a {
   display: block;

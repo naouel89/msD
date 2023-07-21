@@ -98,6 +98,7 @@ include 'navbar.php';
 </div>
 
 <div class="col-md">
+  <div class="category">
  
     <h2>Panier</h2>
     <ul id="cart-items"></ul>
@@ -112,13 +113,15 @@ include 'navbar.php';
         <h3>Résumé de la commande :</h3>
         <ul id="order-items"></ul>
         <p id="order-total"></p>
-      </div>
+     
 
       <!-- Bouton pour valider la commande -->
       <button id="checkout-btn" type="submit">Payer</button>
     </form>
   </div>
+  </div>
 </div>
+
 
 <?php include 'footer.php'; ?>
 
