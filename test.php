@@ -20,9 +20,6 @@ include 'navbar.php';
     <!-- Ici s'affichera le contenu du panier -->
   </div>
 
-  <script src="script.js"></script>
-</body>
-</html>
 
 
   <?php include 'footer.php'; ?>
