@@ -14,6 +14,18 @@
 
 <!-- Burger 2 - DoubleBurgers -->
 <div class="col-md-4">
+  <div class="cartegory">
+  <img src="images_the_district(1)/images_the_district/menu-burger.jpg" alt="Nos Burger" class="effet">
+  </div>
+</a>
+<h3>DoubleBurgers</h3>
+      <p>Prix: 5.99 €</p>
+      <p>Description: Un délicieux burger garni de fromage fondant.</p>
+  <button class="btn btn-primary" onclick="addToCart('DoubleBurgers', 5.99)">Ajouter</button>
+  <input type="number" id="quantity-doubleburger" min="1" value="1">
+         
+</div>
+
   <!-- ... Other menu items ... -->
 </div>
 
