@@ -13,17 +13,18 @@
 </div>
 
 <!-- Burger 2 - DoubleBurgers -->
+
 <div class="col-md-4">
-  <div class="cartegory">
+  <div class="category">
+    
   <img src="images_the_district(1)/images_the_district/menu-burger.jpg" alt="Nos Burger" class="effet">
+    </a>
   </div>
-</a>
-<h3>DoubleBurgers</h3>
-      <p>Prix: 5.99 €</p>
-      <p>Description: Un délicieux burger garni de fromage fondant.</p>
-  <button class="btn btn-primary" onclick="addToCart('DoubleBurgers', 5.99)">Ajouter</button>
-  <input type="number" id="quantity-doubleburger" min="1" value="1">
-         
+  <h3>CheeseBurgers</h3>
+  <p>Prix: 7.99 €</p>
+  <p>Description: Un burger double garni de viande savoureuse.</p>
+  <button class="btn btn-primary" onclick="addToCart('CheeseBurgers', 7.99)">Ajouter</button>
+  <input type="number" id="quantity-CheeseBurgers" min="1" value="1">
 </div>
 
   <!-- ... Other menu items ... -->

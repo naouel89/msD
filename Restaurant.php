@@ -31,12 +31,8 @@ include 'navbar.php';
     </div>
   </div>
 
-  <div class="col-md">
-    <div class="category">
 
 <button class="btn btn-danger" onclick="clearCart()">Vider le panier</button>
-    </div>
-  </div>
 
 <?php include 'footer.php'; ?>
 
