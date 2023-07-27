@@ -27,6 +27,18 @@
   <input type="number" id="quantity-CheeseBurgers" min="1" value="1">
 </div>
 
+<div class="col-md-4">
+  <div class="category">
+    
+  <img src="images_the_district(1)/images_the_district/food/cheesburger.jpg" alt="Nos Burger" class="effet">
+    </a>
+  </div>
+<h3>Burgers3</h3>
+  <p>Prix: 6.49 €</p>
+  <p>Description: Un trio de burgers aux saveurs uniques.</p>
+  <button class="btn btn-primary" onclick="addToCart('Burgers3', 7.99)">Ajouter</button>
+  <input type="number" id="quantity-Burgers3" min="1" value="1">
+</div>
   <!-- ... Other menu items ... -->
 </div>
 

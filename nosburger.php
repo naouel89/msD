@@ -39,7 +39,7 @@ include 'navbar.php';
       <input type="number" id="quantity-DoubleBurgers" min="1" value="1">
     </div>
 
-
+  
     <!-- Burger 3 - Burgers 3 -->
     <div class="col-md-4">
       <div class="category">

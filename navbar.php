@@ -19,9 +19,9 @@
               Catégorie
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="categorie.html">Catégorie</a></li>
+              <li><a class="dropdown-item" href="categorie.php">Catégorie</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="nosburger.php">Nos Burgers</a></li>
+              <li><a class="dropdown-item" href="Restaurant.php">Nos Burgers</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Nos Pizzas</a></li>
               <li><hr class="dropdown-divider"></li>

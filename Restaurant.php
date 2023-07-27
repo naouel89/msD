@@ -28,11 +28,11 @@ include 'navbar.php';
         <!-- Bouton pour valider la commande -->
         <button id="checkout-btn" type="submit" class="btn btn-success">Payer</button>
       </form>
-    </div>
-  </div>
-
+    
 
 <button class="btn btn-danger" onclick="clearCart()">Vider le panier</button>
+</div>
+  </div>
 
 <?php include 'footer.php'; ?>
 
