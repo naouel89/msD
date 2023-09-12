@@ -1,3 +1,29 @@
+<?php
+// Démarrer la session
+session_start();
+
+// Vérifier si le pseudo est stocké dans la variable de session
+if (isset($_SESSION["pseudo"])) {
+    $pseudo = $_SESSION["pseudo"];
+} else {
+    // Rediriger vers la page de connexion si le pseudo n'est pas défini
+    header("Location: connexion.php");
+    exit();
+}
+
+// Fonction de déconnexion
+if (isset($_GET["logout"])) {
+    session_destroy(); // Détruire toutes les données de la session
+    header("Location: connexion.php");
+    exit();
+}
+
+?>
+
+   
+
+
+
 
 <?php 
 $titre = "accueil";
@@ -6,6 +32,9 @@ include 'navbar.php';
 ?>
 
 
+                <div class="main-content">
+                <h2 style='text-align:center'>Bienvenue sur le site, <?php echo $pseudo; ?> !</h2>
+                </div>   
 <section class="banner">
 <div class="container">
 <div class="row">
@@ -26,7 +55,7 @@ include 'navbar.php';
 <div class="col-lg-4">
 <div class="featured-item">
   <i class="fas fa-hamburger"></i>
-  <a href="nosburger.php" class="btn btn-primary" ><h3>Nos Burgers</h3></a>
+  <a href="resto.php" class="btn btn-primary" ><h3>Nos Burgers</h3></a>
   <p>Dégustez nos hamburgers savoureux préparés avec des ingrédients frais.</p>
 </div>
 </div>

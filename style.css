@@ -171,6 +171,115 @@ footer ul li {
   height: auto;
 }
 
+/*page resto test */
+/* Styles généraux */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+/* Styles pour menu.php */
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.menu-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.menu-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.menu-details h2 {
+  font-size: 20px;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.menu-details p {
+  margin: 0;
+  margin-top: 5px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+/* Styles pour details_plat.php */
+
+.plat-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.plat-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.plat-info {
+  margin-left: 20px;
+}
+
+.plat-info h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.plat-info p {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.btn-success {
+  background-color: #4CAF50;
+}
+
+.btn-success:hover {
+  background-color: #45a049;
+}
+
+/* Vous pouvez ajouter d'autres styles spécifiques au besoin */
 
 
 /* Effet de zoom sur la page d'accueil */
